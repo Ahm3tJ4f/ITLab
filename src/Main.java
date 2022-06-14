@@ -1,24 +1,13 @@
 public class Main {
     public static void main(String[] args) {
-        int[] arr = new  int[1000];
+        int[] arr = new  int[10];
+        Algorithm alg = new Algorithm();
 
         for (int i = 0; i < arr.length; i++){
             arr[i] = (int) (Math.random()*1000-500);
         }
 
-        int i = 0;
-        while (i != arr.length-1){
-        if(arr[i] > arr[i+1]  ){
-
-                arr[i] += arr[i+1];
-                arr[i+1] = arr[i] - arr[i+1];
-                arr[i] -= arr[i+1];
-
-                i=  -1;
-            }
-            i++;
-        }
-
+        arr = alg.sort(arr);
 
         for (int k : arr) {
             System.out.println(k);
@@ -27,4 +16,3 @@ public class Main {
 
     }
 }
-
