@@ -18,4 +18,19 @@ public class Algorithm {
         }
         return arr;
     }
+
+    public String isDuplicated (String word){
+        char[] chars = word.toCharArray();
+        for ( char aChar : chars){
+            int counter = 0;
+            for (char bChar : chars) {
+                if (aChar == bChar) {
+                    counter++;
+                }
+            }
+            if (counter == 2) return word;
+        }
+        return "";
+    }
+
 }
