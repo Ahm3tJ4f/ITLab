@@ -1,35 +1,25 @@
 import java.security.AllPermission;
+import java.util.Arrays;
 import java.util.Objects;
 import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        Algorithm alg = new Algorithm();
+        int[] arr = {1,1,1,1};
 
-        Scanner scan = new Scanner(System.in);
-        String[] output = new String[10];
-
-        for (int i = 0; i < output.length; i++){
-            String word = scan.nextLine();
-            word = alg.isDuplicated(word);
-
-            if(!Objects.equals(word, "")){
-                output[i] = word;
-            }
-        }
-
-        for (String word: output){
-            if(word != null){
-            System.out.println(word);
-            }
-        }
-
-
-
-
-
-
-
-
+        System.out.println(findMissing(arr));
     }
+
+    public static int findMissing(int[] numbers)
+    {
+        int lastIndex = numbers.length-1;
+        int d = (numbers[lastIndex] - numbers[0]) / (numbers.length);
+
+        for(int i = 1; i < numbers.length; i++){
+            if(numbers[i] != numbers[i-1]+d){
+                return numbers[i-1]+d;
+            }
+        }
+        return numbers[0];
+        }
 }
